@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('방명록 작성')}">
+</head>
+<body>
+<nav
+    th:replace="~{fragments/nav :: navbar(${#session == null ? null : #session.getAttribute('logonUserId')})}"></nav>
+<div class="container mt-5">
+  <div class="form-group">
+    <label for="content">방명록 작성</label>
+    <textarea class="form-control mb-2" id="content" rows="5"></textarea>
+    <button type="button" class="btn btn-dark" onclick="createGuestbook()">등록</button>
+    <a role="button" class="btn btn-secondary" href="/guestbook">취소</a>
+  </div>
+</div>
+</body>
+<script th:src="@{/js/guestbookCreateForm.js}"></script>
+</html>

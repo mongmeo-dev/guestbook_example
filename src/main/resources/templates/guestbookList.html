@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('방명록')}"></head>
+<body onload="init()">
+<nav
+    th:replace="~{fragments/nav :: navbar(${#session == null ? null : #session.getAttribute('logonUserId')})}"></nav>
+<div class="container mt-5">
+  <a href="/guestbook/create" role="button" class="btn btn-dark mb-3">방명록 쓰기</a>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">content</th>
+      <th scope="col">author</th>
+      <th scope="col">write time</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+<script th:src="@{/js/guestbookList.js}"></script>
+</body>
+</html>

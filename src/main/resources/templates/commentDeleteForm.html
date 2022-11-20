@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('login')}"></head>
+<body>
+<nav
+    th:replace="~{fragments/nav :: navbar(${#session == null ? null : #session.getAttribute('logonUserId')})}"></nav>
+<div class="container mt-5">
+  <h1>댓글을 삭제하시겠습니까?(작성자만 삭제 가능합니다)</h1>
+  <button type="button" onclick="deleteComment()" class="btn btn-danger">삭제</button>
+</div>
+</body>
+<script th:src="@{/js/deleteComment.js}"></script>
+</html>

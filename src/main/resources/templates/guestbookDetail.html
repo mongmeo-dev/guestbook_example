@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(logout)}">
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body onload="init(); printAllComment();">
+<nav
+    th:replace="~{fragments/nav :: navbar(${#session == null ? null : #session.getAttribute('logonUserId')})}"></nav>
+<div class="container">
+  <h1 id="title"></h1>
+  작성 시간 : <span id="writeTime"></span> | 작성자 : <span id="authorNickname"></span> |
+  <a th:href="|${#request.getRequestURI()}/delete|">삭제</a>
+  <hr>
+  <p id="content"></p>
+  <hr>
+  <div class="form-group">
+    <label for="comment">댓글</label>
+    <textarea class="form-control" id="comment" rows="3"></textarea>
+  </div>
+  <button type="button" class="btn btn-dark" onclick="registerComment()">등록</button>
+  <div id="commentContainer" class="mt-5"></div>
+</div>
+
+</body>
+<script th:src="@{/js/guestbookDetail.js}"></script>
+<script th:src="@{/js/comment.js}"></script>
+</html>

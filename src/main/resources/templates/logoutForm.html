@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('login')}"></head>
+<body>
+<nav
+    th:replace="~{fragments/nav :: navbar(${#session == null ? null : #session.getAttribute('logonUserId')})}"></nav>
+<div class="container mt-5">
+  <h1>로그아웃 하시겠습니까?</h1>
+  <button type="button" onclick="logout()" class="btn btn-danger">Logout</button>
+</div>
+</body>
+<script th:src="@{/js/logout.js}"></script>
+</html>

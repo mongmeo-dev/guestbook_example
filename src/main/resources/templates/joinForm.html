@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('login')}"></head>
+<body>
+<nav
+    th:replace="~{fragments/nav :: navbar(${#session == null ? null : #session.getAttribute('logonUserId')})}"></nav>
+<div class="container mt-5">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password">
+  </div>
+  <div class="form-group">
+    <label for="nickname">Nickname</label>
+    <input type="text" class="form-control" id="nickname">
+  </div>
+  <button type="button" onclick="join()" id="loginButton" class="btn btn-dark">Join</button>
+</div>
+</body>
+<script th:src="@{/js/join.js}"></script>
+</html>
